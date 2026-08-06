@@ -15,3 +15,6 @@ class College(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     district = relationship("District", backref="colleges")
+    college_code = Column(String(10), unique=True, index=True)
+    university = Column(String(255))
+    city = Column(String(255))

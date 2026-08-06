@@ -8,6 +8,8 @@ sys.path.insert(0, "")
 
 from app.core.config import settings
 from app.models.base import Base
+# IMPORTANT: import all models so SQLAlchemy registers them
+import app.models
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

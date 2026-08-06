@@ -32,8 +32,10 @@ class BaseRepository(Generic[T]):
         db.refresh(db_obj)
         return db_obj
 
-    def delete(self, db: Session, id: int) -> None:
+    def delete(self, db: Session, id: int) -> bool:
         obj = self.get(db, id)
         if obj:
             db.delete(obj)
             db.commit()
+            return True
+        return False
